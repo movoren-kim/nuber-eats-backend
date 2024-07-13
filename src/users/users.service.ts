@@ -21,13 +21,14 @@ export class UsersService {
     private readonly authService: AuthService,
   ) {}
 
-  async createAccountInput(
+  async createAccount(
     createAccountInput: CreateAccountInputDto,
   ): Promise<CreateAccountOutputDto> {
     try {
       const existEmail = await this.userRepository.findOne({
         where: { email: createAccountInput.email },
       });
+      console.log(existEmail);
       if (existEmail)
         throw new Error('[계정 생성] 이미 존재하는 이메일입니다.');
       const createUserObject = this.userRepository.create(createAccountInput);

@@ -29,7 +29,7 @@ export class UsersResolver {
   async createAccount(
     @Args('input') createAccountInput: CreateAccountInputDto,
   ): Promise<CreateAccountOutputDto> {
-    return await this.usersService.createAccountInput(createAccountInput);
+    return await this.usersService.createAccount(createAccountInput);
   }
 
   @Public()
