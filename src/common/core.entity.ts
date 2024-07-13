@@ -1,11 +1,15 @@
-import { Field, Int } from '@nestjs/graphql';
+import { Field, InputType, Int, ObjectType } from '@nestjs/graphql';
 import {
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
+@InputType('CoreEntityInputType')
+@ObjectType()
+@Entity()
 export class CoreEntity {
   @PrimaryGeneratedColumn({ unsigned: true })
   @Field(() => Int)
